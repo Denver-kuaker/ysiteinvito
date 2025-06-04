@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mensajes Flotantes en Orden</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="circle" onclick="lanzarMensaje()">
+            <div class="arrow-down"></div>
+        </div>
+    </div>
+
+    <script>
+        // Lista de mensajes en orden específico
+        const mensajes = [
+            "Quieres.....",
+            "tener.....",
+            "secso",
+            "coito",
+            "copulación",
+            "y fornicación",
+            "conmigo??",
+            "❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️",
+        ];
+
+        // Índice del mensaje actual
+        let indiceMensaje = 0;
+
+        function lanzarMensaje() {
+            // Crear el div del mensaje
+            const mensaje = document.createElement('div');
+            mensaje.className = 'message';
+            mensaje.textContent = mensajes[indiceMensaje];
+
+            // Agregarlo al body
+            document.body.appendChild(mensaje);
+
+            // Eliminar después de la animación (3 segundos)
+            setTimeout(() => {
+                mensaje.remove();
+            }, 3000);
+
+            // Avanzar al siguiente mensaje, reiniciar si se llegó al final
+            indiceMensaje = (indiceMensaje + 1) % mensajes.length;
+        }
+    </script>
+</body>
+</html>
